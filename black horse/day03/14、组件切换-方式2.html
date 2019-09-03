@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <a href="" @click.prevent="name='login'">登录</a>
+        <a href="" @click.prevent="name='register'">注册</a>
+        <a href="" @click.prevent="name='forget'">忘记密码</a>
+        <component :is="name"></component>
+    </div>
+    <template id="tmp1">
+        <h3>登录</h3>
+    </template>
+    <template id="tmp2">
+        <h3>注册</h3>
+    </template>
+    <template id="tmp3">
+        <h3>忘记密码</h3>
+    </template>
+
+    <script>
+        Vue.component('login', {
+            template: '#tmp1'
+        })
+        Vue.component('register', {
+            template: '#tmp2'
+        })
+        Vue.component('forget', {
+            template: '#tmp3'
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'login'
+            },
+            methods: {}
+        })
+    </script>
+</body>
+
+</html>

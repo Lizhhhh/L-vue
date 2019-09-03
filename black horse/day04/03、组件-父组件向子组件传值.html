@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <child v-bind:parent-msg='msg'></child>
+    </div>
+
+    <template id="tpl1">
+        <div>
+            <h1>{{ title }}</h1>
+            <p>{{ parentMsg }}</p>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '我是vm 的msg,'
+            },
+            methods: {},
+            components: {
+                child: {
+                    props: ['parentMsg'], // 继承父模板,数据是只读的.
+                    template: '#tpl1',
+                    data() {
+                        return { // 子模板数据,可读可写!
+                            title: "我是子组件的私有数据,是只读的哈!"
+                        }
+                    }
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

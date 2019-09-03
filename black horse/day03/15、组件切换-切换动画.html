@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <a href="" @click.prevent="name='login'">登录</a>
+        <a href="" @click.prevent="name='register'">注册</a>
+        <a href="" @click.prevent="name='forget'">忘记密码</a>
+
+        <transition mode="out-in">
+            <component :is="name"></component>
+        </transition>
+
+    </div>
+    <template id="tmp1">
+        <h3>登录</h3>
+    </template>
+    <template id="tmp2">
+        <h3>注册</h3>
+    </template>
+    <template id="tmp3">
+        <h3>忘记密码</h3>
+    </template>
+
+    <script>
+        Vue.component('login', {
+            template: '#tmp1'
+        })
+        Vue.component('register', {
+            template: '#tmp2'
+        })
+        Vue.component('forget', {
+            template: '#tmp3'
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'login'
+            },
+            methods: {}
+        })
+    </script>
+</body>
+
+</html>
