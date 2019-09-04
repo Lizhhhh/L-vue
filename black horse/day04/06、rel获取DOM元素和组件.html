@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <input type="button" value="获取元素" @click="getElement" ref="myBtn">
+        <h3 ref="myh3">rel = "myh3"</h3>
+        <hr>
+        <login ref="myLogin"></login>
+    </div>
+
+    <template id="tmp1">
+        <h1>登录</h1>
+    </template>
+    <script>
+        var login = {
+            template: '#tmp1',
+            data() {
+                return {
+                    msg: 'son msg'
+                }
+            },
+            methods: {
+                show() {
+                    console.log("调用子组件的方法");
+                }
+            }
+        }
+
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                getElement() {
+                    console.log(this.$refs.myLogin.msg);
+                    this.$refs.myLogin.show();
+                }
+            },
+            components: {
+                'login': login
+            }
+        })
+    </script>
+</body>
+
+</html>

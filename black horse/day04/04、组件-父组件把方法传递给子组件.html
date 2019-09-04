@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <com2 @parshow="show"></com2>
+    </div>
+
+    <template id="tmp1">
+        <div>
+            <p>这是子组件</p>
+            <input type="button" @click="childClick" value="点击我,调用父组件的方法">
+        </div>
+    </template>
+    <script>
+        // 定义了一个字面量类型的组件模板对象
+        var com2 = {
+            template: '#tmp1',
+            data() {
+                return {
+                    sonmsg: {
+                        name: '小头儿子',
+                        age: 6
+                    }
+                }
+            },
+            methods: {
+                childClick() {
+                    this.$emit('parshow', JSON.stringify(this.sonmsg));
+                }
+            }
+        }
+
+        Vue.component('com2', com2);
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msgFromSon: ''
+            },
+            methods: {
+                show(data) {
+                    this.msgFromSon = JSON.parse(data);
+                    console.log(this.msgFromSon.name);
+                }
+            },
+            components: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

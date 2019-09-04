@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/vue-router/dist/vue-router.js"></script>
+    <style>
+        .router-link-active,
+        .myactive {
+            color: red;
+            font-weight: 800;
+            font-style: italic;
+            /* font-size: 80px; */
+            text-decoration: underline;
+        }
+
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(140px);
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <a href="#/login">登录</a> -->
+        <!-- <a href="#/register">注册</a> -->
+
+        <router-link to="/login">登录</router-link>
+        <router-link to="/register">注册</router-link>
+
+        <transition mode="out-in">
+            <router-view></router-view>
+        </transition>
+
+    </div>
+    <template id="tmp1">
+        <h1>登录页面</h1>
+    </template>
+
+    <template id="tmp2">
+        <h1>注册页面</h1>
+    </template>
+
+    <script>
+        var login = {
+            template: '#tmp1'
+        }
+        var register = {
+            template: '#tmp2'
+        }
+        var routerObj = new VueRouter({
+            // 这个 route 表示【路由匹配规则】
+            routes: [
+                { path: '/', redirect: '/login' },
+                { path: '/login', component: login },
+                { path: '/register', component: register },
+            ],
+            linkActiveClass: 'myactive'
+        })
+
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            router: routerObj
+        })
+    </script>
+</body>
+
+</html>

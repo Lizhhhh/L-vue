@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/vue-router/dist/vue-router.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(140px);
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <router-link to="/login?id=10&name=zs">登录</router-link>
+        <router-link to="/register">注册</router-link>
+        <transition mode="out-in">
+            <router-view></router-view>
+        </transition>
+    </div>
+
+
+    <script>
+        var login = {
+            template: '<h1>登录 --- {{$route.query.id}} --- {{$route.query.name}} </h1>',
+            created() {
+            }
+        }
+
+        var register = {
+            template: '<h1>注册</h1>'
+        }
+
+        var router = new VueRouter({
+            routes: [
+                { path: '/', redirect: '/login' },
+                { path: '/login', component: login },
+                { path: '/register', component: register }
+            ]
+        })
+
+
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            router
+        })
+    </script>
+</body>
+
+</html>
