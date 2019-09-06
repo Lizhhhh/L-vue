@@ -6,58 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="../../node_modules/vue/dist/vue.js"></script>
-    <style>
-
-    </style>
 </head>
 
 <body>
     <div id="app">
-        <com2 @parshow="show"></com2>
+        <com1 :prop-msg="msg" @func='getMsgFromSon'> </com1>
     </div>
 
     <template id="tmp1">
         <div>
-            <p>这是子组件</p>
-            <input type="button" @click="childClick" value="点击我,调用父组件的方法">
+            <h1>
+                这是一个子元素 --- {{ propMsg }}
+            </h1>
+            <input type="button" value="向父组件传递消息" @click="sendMsg">
         </div>
     </template>
     <script>
-        // 定义了一个字面量类型的组件模板对象
-        var com2 = {
+        var com1 = {
             template: '#tmp1',
+            props: ['propMsg'],
             data() {
                 return {
-                    sonmsg: {
-                        name: '小头儿子',
-                        age: 6
-                    }
+                    msg: '子组件传递给父组件!!!!的数据据'
                 }
             },
             methods: {
-                childClick() {
-                    this.$emit('parshow', JSON.stringify(this.sonmsg));
+                sendMsg() {
+                    this.$emit('func', this.msg);
                 }
             }
         }
 
-        Vue.component('com2', com2);
-        const vm = new Vue({
+        var vm = new Vue({
             el: '#app',
             data: {
+                msg: '这是父组件中的数据,爸爸有100块钱...',
                 msgFromSon: ''
             },
             methods: {
-                show(data) {
-                    this.msgFromSon = JSON.parse(data);
-                    console.log(this.msgFromSon.name);
+                getMsgFromSon(data) {
+                    this.msgFromSon = data;
+                    console.log(this.msgFromSon);
                 }
             },
             components: {
-
+                com1
             }
         })
     </script>
 </body>
+
 
 </html>

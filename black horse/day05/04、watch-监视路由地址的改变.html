@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/vue-router/dist/vue-router.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(800px);
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.5s ease;
+        }
+
+        .myactive {
+            color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/login">登录</router-link>
+        <router-link to="/register">注册</router-link>
+        <transition mode="out-in">
+            <router-view></router-view>
+        </transition>
+    </div>
+
+    <script>
+        var login = {
+            template: '<h3>这是登录的子组件,这个组件是 奔波霸 开发的.</h3>'
+        }
+        var register = {
+            template: '<h3>这是注册子组件, 这个组件是 霸波奔 开发的.</h3>'
+        }
+        var router = new VueRouter({
+            routes: [
+                { path: '/', redirect: '/login' },
+                { path: '/login', component: login },
+                { path: '/register', component: register },
+            ],
+            linkActiveClass: 'myactive'
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            router,
+            watch: {
+                '$route.path': function() {
+                    if (this.$route.path = '/login') {
+                        alert('欢迎,来到登录页面');
+                        return;
+                    }
+                    if (this.$route.path = '/register') {
+                        alert('欢迎,来到注册页面');
+                        return;
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+
+</html>
