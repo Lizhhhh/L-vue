@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --hot --port 3000 --contentBase src"
+    "dev": "webpack-dev-server --open --hot --port 5500 --contentBase src"
   },
   "keywords": [],
   "author": "lizhhhh <543288744@qq.com>",
@@ -40,6 +40,7 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
-    "mint-ui": "^2.2.13"
+    "mint-ui": "^2.2.13",
+    "moment": "^2.24.0"
   }
 }

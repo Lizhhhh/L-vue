@@ -15,6 +15,15 @@ import VueResource from 'vue-resource'
 
 // 2.2 安装 vue-resource
 Vue.use(VueResource)
+// 设置请求的根路径
+
+// 导入格式化时间的插件
+import moment from 'moment'
+
+// 全局的过滤器
+Vue.filter('dateFormat', (str, pattern = "YYYY-MM-DD HH:mm:ss") => {
+    return moment(str).format(pattern);
+})
 
 
 // 导入 App 根组件

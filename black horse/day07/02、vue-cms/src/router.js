@@ -6,6 +6,7 @@ import HomeContainer from './lib/components/tabbar/HomeContainer.vue'
 import MemberContainer from './lib/components/tabbar/MemberContainer.vue'
 import ShopcarContainer from './lib/components/tabbar/ShopcarContainer.vue'
 import SearchContainer from './lib/components/tabbar/SearchContainer.vue'
+import NewsList from './lib/components/news/NewsList.vue'
 
 // 3.创建路由对象
 var router = new VueRouter({
@@ -15,6 +16,7 @@ var router = new VueRouter({
         { path: '/member', component: MemberContainer },
         { path: '/search', component: SearchContainer },
         { path: '/shopcar', component: ShopcarContainer },
+        { path: '/home/newslist', component: NewsList }
         // 配置路由规则
     ],
     linkActiveClass: 'mui-active'
