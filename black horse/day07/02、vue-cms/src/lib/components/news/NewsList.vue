@@ -7,7 +7,7 @@
         v-for="item in newsLists"
         :key="item.id"
       >
-        <a href="javascript:;">
+        <router-link :to="'/home/newsinfo/' + item.id">
           <img
             class="mui-media-object mui-pull-left"
             :src="item.img_url"
@@ -19,7 +19,7 @@
               <span>点击: {{ item.check }}次</span>
             </p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>

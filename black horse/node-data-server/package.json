@@ -1,0 +1,15 @@
+{
+  "name": "node-data-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "getnew.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "lizhhhh <543288744@qq.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
