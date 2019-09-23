@@ -89,6 +89,9 @@ axios
 ```
 
 # 项目打包上线
+1. config/index.js
+   + 将assetsPublicPath的绝对路径('/')改为相对路径('./')
+2. npm run build
 
 
 
