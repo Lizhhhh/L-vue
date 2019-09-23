@@ -5,11 +5,13 @@
     <textarea
       placeholder="请输入要BB的内容(最多吐槽120字)"
       maxlength="120"
+      v-model="comment"
     ></textarea>
 
     <mt-button
       type="primary"
       size="large"
+      @click="addComment"
     >发表评论</mt-button>
 
     <div class="cmt-list">
@@ -56,15 +58,24 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      comment: '',
+      commentList:[
+
+      ]
+    }
   },
   methods: {
     getComments() {
       this.$http('http://127.0.0.1:8888/getcomments/')
     },
-    getMore(){
+    getMore() {
       this.pageIndex++;
       this.getComments();
+    },
+    addComment() {
+      // this.$http('http://127.0.0.1:8888/')
+      console.log(this.comment);
     }
   }
 }
