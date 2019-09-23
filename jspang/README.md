@@ -13,8 +13,8 @@
 ```
 html, body, #app{
   hight: 100%;
-  padding: 100%;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
 ```
 # ----------------------------------------------------------
@@ -70,6 +70,28 @@ html, body, #app{
 1. mounted是数据、方法和DOM全部准备完成
 2. document.body.clientHeight 来获取高度
 3. 将获取的高度赋值给需要的id: document.getElementById('order-list').style.height = orderHeight + 'px'
+
+
+# 使用 Axios 从远程读取数据
+1. 安装 cnpm install axios --save
+2. 导入 & 使用
+```
+import axios from 'axios'
+
+axios
+.get(url)
+.then(res=>{
+  console.log(res);
+})
+.catch(err=>{
+  console.log(error);
+})
+```
+
+# 项目打包上线
+
+
+
 
 
 

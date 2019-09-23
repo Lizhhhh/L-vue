@@ -38,7 +38,7 @@
           <div class="title">常用商品</div>
           <div class="frequent-goods-list">
             <ul>
-              <li v-for="item in frequentGoods" :key="item.goodsId">
+              <li v-for="item in offenGoods" :key="item.goodsId" @click="addOrderList(item)">
                 <span>{{ item.goodsName }}</span>
                 <span class='o-price'>￥{{ item.price }}元</span>
               </li>
@@ -48,18 +48,82 @@
         <!-- 按类别分类 -->
         <div class="goods-type">
           <el-tabs>
+            <!-- 管饱主食 -->
             <el-tab-pane label="管饱主食">
               <div>
-                <ul class="cookList">
-                  <li>
-                    <span class="foodImg"><img /></span>
-                  </li>
-                </ul>
+                <el-row>
+                  <el-col :span="4" v-for="o in type0Goods" :key="o">
+                    <el-card>
+                      <img :src="o.goodsImg" class="image">
+                      <div style="padding: 14px;">
+                        <span>{{o.goodsName}}</span>
+                        <div class="bottom clearfix">
+                          <span>￥{{ o.price }}元</span>
+                          <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                      </div>
+                    </el-card>
+                  </el-col>
+                </el-row>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="精品小吃">精品小吃</el-tab-pane>
-            <el-tab-pane label="冰爽饮料">冰爽饮料</el-tab-pane>
-            <el-tab-pane label="省钱套餐">省钱套餐</el-tab-pane>
+            <!-- 精品小吃 -->
+            <el-tab-pane label="精品小吃">
+              <div>
+                <el-row>
+                  <el-col :span="4" v-for="o in type1Goods" :key="o">
+                    <el-card>
+                      <img :src="o.goodsImg" class="image">
+                      <div style="padding: 14px;">
+                        <span>{{o.goodsName}}</span>
+                        <div class="bottom clearfix">
+                          <span>￥{{ o.price }}元</span>
+                          <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                      </div>
+                    </el-card>
+                  </el-col>
+                </el-row>
+              </div>
+            </el-tab-pane>
+            <!-- 冰爽饮料 -->
+            <el-tab-pane label="冰爽饮料">
+              <div>
+                <el-row>
+                  <el-col :span="4" v-for="o in type2Goods" :key="o">
+                    <el-card>
+                      <img :src="o.goodsImg" class="image">
+                      <div style="padding: 14px;">
+                        <span>{{o.goodsName}}</span>
+                        <div class="bottom clearfix">
+                          <span>￥{{ o.price }}元</span>
+                          <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                      </div>
+                    </el-card>
+                  </el-col>
+                </el-row>
+              </div>
+            </el-tab-pane>
+            <!-- 省钱套餐 -->
+            <el-tab-pane label="省钱套餐">
+              <div>
+                <el-row>
+                  <el-col :span="4" v-for="o in type3Goods" :key="o">
+                    <el-card>
+                      <img :src="o.goodsImg" class="image">
+                      <div style="padding: 14px;">
+                        <span>{{o.goodsName}}</span>
+                        <div class="bottom clearfix">
+                          <span>￥{{ o.price }}元</span>
+                          <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                      </div>
+                    </el-card>
+                  </el-col>
+                </el-row>
+              </div>
+            </el-tab-pane>
           </el-tabs>
         </div>
       </el-col>
@@ -69,6 +133,7 @@
 
 
 <script>
+import axios from 'axios'
 export default {
   name: 'pos',
   data() {
@@ -95,61 +160,45 @@ export default {
           count: 1
         }
       ],
-      frequentGoods: [
-        {
-          goodsId: 1,
-          goodsName: '香辣鸡腿堡',
-          price: 18
-        },
-        {
-          goodsId: 2,
-          goodsName: '田园鸡腿堡',
-          price: 15
-        },
-        {
-          goodsId: 3,
-          goodsName: '和风汉堡',
-          price: 15
-        },
-        {
-          goodsId: 4,
-          goodsName: '快乐全家桶',
-          price: 80
-        },
-        {
-          goodsId: 5,
-          goodsName: '脆皮炸鸡腿',
-          price: 10
-        },
-        {
-          goodsId: 6,
-          goodsName: '魔法鸡块',
-          price: 20
-        },
-        {
-          goodsId: 7,
-          goodsName: '大杯可乐',
-          price: 10
-        },
-        {
-          goodsId: 8,
-          goodsName: '雪顶咖啡',
-          price: 18
-        },
-        {
-          goodsId: 9,
-          goodsName: '大份鸡米花',
-          price: 15
-        },
-        {
-          goodsId: 10,
-          goodsName: '香辣鸡柳',
-          price: 17
-        },
+      offenGoods: [
+
+      ],
+      type0Goods: [
+      ],
+      type1Goods: [
+      ],
+      type2Goods: [
+      ],
+      type3Goods: [
       ]
     }
   },
-  mounted: function () {    // 所有虚拟Dom 加载完成之后执行
+  methods: {
+    addOrderList(o) {
+      console.log(o);
+    }
+  },
+  created() {
+    axios
+      .get('http://localhost:3000/ofenGoods')
+      .then(res => {
+        this.offenGoods = res.data;
+        console.log(res)
+      })
+      .catch(error => {
+        alert('网络错误, 不能访问');
+      })
+
+    axios
+      .get('http://localhost:3000/typeGoods')
+      .then(res => {
+        this.type0Goods = res.data[0];
+        this.type1Goods = res.data[1];
+        this.type2Goods = res.data[2];
+        this.type3Goods = res.data[3];
+      })
+  },
+  mounted() {    // 所有虚拟Dom 加载完成之后执行
     var orderHeight = document.body.clientHeight;
     document.getElementById('order-list').style.height = orderHeight + 'px';
   },
@@ -195,5 +244,32 @@ export default {
 .goods-type {
   clear: both;
   padding: 15px;
+}
+
+/* 分类的样式 */
+.bottom {
+  margin-top: 13px;
+  line-height: 12px;
+}
+
+.button {
+  padding: 0;
+  float: right;
+}
+
+.image {
+  width: 180px;
+  height: 130px;
+  display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
 }
 </style>

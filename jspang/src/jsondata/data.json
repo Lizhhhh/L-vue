@@ -1,0 +1,119 @@
+{
+    "ofenGoods": [{
+            "goodsId": 1,
+            "goodsName": "香辣鸡腿堡",
+            "price": 18
+        },
+        {
+            "goodsId": 2,
+            "goodsName": "田园鸡腿堡",
+            "price": 15
+        },
+        {
+            "goodsId": 3,
+            "goodsName": "和风汉堡",
+            "price": 15
+        },
+        {
+            "goodsId": 4,
+            "goodsName": "大包薯条",
+            "price": 18
+        },
+        {
+            "goodsId": 5,
+            "goodsName": "脆皮炸鸡腿",
+            "price": 20
+        },
+        {
+            "goodsId": 6,
+            "goodsName": "魔法鸡块",
+            "price": 20
+        },
+        {
+            "goodsId": 7,
+            "goodsName": "可乐大杯",
+            "price": 10
+        },
+        {
+            "goodsId": 8,
+            "goodsName": "雪顶咖啡",
+            "price": 18
+        },
+        {
+            "goodsId": 9,
+            "goodsName": "儿童欢乐套餐",
+            "price": 25
+        },
+        {
+            "goodsId": 10,
+            "goodsName": "快乐全家桶",
+            "price": 99
+        }
+    ],
+    "typeGoods": [
+        [{
+                "goodsId": 1,
+                "goodsImg": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3873654061,1874434898&fm=26&gp=0.jpg",
+                "goodsName": "香辣鸡腿堡",
+                "price": 18
+            },
+            {
+                "goodsId": 2,
+                "goodsImg": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3603089764,182557400&fm=26&gp=0.jpg",
+                "goodsName": "田园鸡腿堡",
+                "price": 15
+            },
+            {
+                "goodsId": 3,
+                "goodsImg": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=634455488,2538353982&fm=15&gp=0.jpg",
+                "goodsName": "和风汉堡",
+                "price": 15
+            }
+        ],
+        [{
+                "goodsId": 4,
+                "goodsImg": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=350409573,2856051543&fm=26&gp=0.jpg",
+                "goodsName": "大包薯条",
+                "price": 18
+            },
+            {
+                "goodsId": 5,
+                "goodsImg": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2455009318,598055694&fm=26&gp=0.jpg",
+                "goodsName": "脆皮炸鸡腿",
+                "price": 20
+            },
+            {
+                "goodsId": 6,
+                "goodsImg": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1601014932,3664909369&fm=26&gp=0.jpg",
+                "goodsName": "魔法鸡块",
+                "price": 20
+            }
+        ],
+        [{
+                "goodsId": 7,
+                "goodsImg": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=248570384,4195481762&fm=15&gp=0.jpg",
+                "goodsName": "大杯可乐",
+                "price": 10
+            },
+            {
+                "goodsId": 8,
+                "goodsImg": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=839410269,2677058581&fm=26&gp=0.jpg",
+                "goodsName": "雪顶咖啡",
+                "price": 18
+            }
+        ],
+        [{
+                "goodsId": 9,
+                "goodsImg": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2307010147,1874147161&fm=15&gp=0.jpg",
+                "goodsName": "儿童欢乐套餐",
+                "price": 25
+            },
+            {
+                "goodsId": 10,
+                "goodsImg": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3838205269,2530118599&fm=15&gp=0.jpg",
+                "goodsName": "快乐全家桶",
+                "price": 99
+            }
+        ]
+    ]
+}
