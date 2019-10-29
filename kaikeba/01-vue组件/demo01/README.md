@@ -76,3 +76,47 @@ export default router
     + 载荷: 包含用户信息、签发时间和过期时间等信息
     + 签名: 根据头、载荷及秘钥加密得到的哈希串
 
+# http代理
+  - vue.config.js
+  ````
+  configureWebpack:{
+    devServer:{
+      proxy:{
+        '/api':{
+          target:'http://127.0.0.1:3000',
+          changeOrigin: true
+        }
+      }
+    }
+  }
+  ````
+
+
+  # service层的作用(前端)
+    - 从服务器或获取的数据格式往往和前端业务所需的数据格式不同
+    - 在service层将数据处理成需要的格式
+    - 栗子
+    - /src/service/goods.js
+````
+import axios from 'axios'
+
+export default {
+    getGoodsInfo() {
+        return axios.get('/api/goods')
+            .then(res => {
+                const { code, data: goodsInfo, slider, keys } = res.data;
+                // 数据的处理操作
+                if (code) {
+                    return { goodsInfo, slider, keys }
+                } else{
+                  return null
+                }
+            })
+    }
+}
+````
+
+# store文件
+  - 用于管理页面所有数据的状态
+
+

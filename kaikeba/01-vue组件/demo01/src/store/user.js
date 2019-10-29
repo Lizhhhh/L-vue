@@ -1,10 +1,8 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import us from './service/user';
+import us from '@/service/user';
 
-Vue.use(Vuex)
 
-export default new Vuex.Store({
+
+export default {
     state: {
         isLogin: localStorage.getItem('token') ? true : false
     },
@@ -34,4 +32,4 @@ export default new Vuex.Store({
         }
     },
     modules: {}
-})
+}
