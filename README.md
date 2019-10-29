@@ -11,3 +11,5 @@ vue的资料归类
 # js pang: 
   + http://www.jspang.com/posts/2017/05/22/vuedemo.html
 
+# kaikeba:
+  + https://www.bilibili.com/video/av71365439?from=search&seid=10592828932035949915
